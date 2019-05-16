@@ -11,6 +11,7 @@ t_node *create_node(int nbr)
     new = (t_node*)malloc(sizeof(t_node));
     new->nbr = nbr;
     new->next = NULL;
+    new->prev = NULL;
     return (new);
 }
 
@@ -18,6 +19,7 @@ void    add_node_tail(t_node **tail, t_node *node)
 {
     if(*tail)
         (*tail)->next = node;
+    node->prev = *tail;
     *tail = node;
 }
 

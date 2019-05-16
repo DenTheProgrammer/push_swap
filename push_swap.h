@@ -11,6 +11,7 @@
 typedef struct s_node
 {
     int nbr;
+    struct s_node *prev;
     struct s_node *next;
 } t_node;
 
@@ -24,5 +25,13 @@ typedef struct
 t_node *create_node(int nbr);
 void    add_node_tail(t_node **tail, t_node *node);
 t_stack *create_stack(int *arr, int size);
+
+void    swap(t_stack *stack, char *name);
+void    swap_both(t_stack *a, t_stack *b);
+void    push(t_stack *src, t_stack *dest);
+void    rotate(t_stack *stack);
+void    rotate_both(t_stack *a, t_stack *b);
+void    reverse_rotate(t_stack *stack);
+void    reverse_rotate_both(t_stack *a, t_stack *b);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H
