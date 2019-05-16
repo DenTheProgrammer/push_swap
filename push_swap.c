@@ -5,38 +5,58 @@
 
 #include "push_swap.h"
 
+int is_sorted(t_stack *a)
+{
+    t_node *head = a->head;
+
+    while (head && head->next)
+    {
+        if (head->nbr > head->next->nbr)
+            return (0);
+        head = head->next;
+    }
+    return (1);
+}
+
+int    radix_sort(t_stack *a, t_stack *b)
+{
+    int mask = 1;
+    int i;
+    int start_size = a->size;
+    int opcount = 0;
+
+    while (!is_sorted(a))
+    {
+        i = 0;
+        while (i++ < start_size)
+        {
+        	if ((a->head->nbr & mask) == 0)
+                push(a, b);
+        	else
+        		rotate(a);
+        	opcount++;
+        }
+        while (b->size > 0)
+		{
+			push(b, a);
+			opcount++;
+		}
+        mask = mask << 1;
+    }
+	return (opcount);
+}
+
+
 
 int main()
 {
-    int testa[] = {0, 45, 65, 90, -4};
-    int testb[] = {1};
+    int testa[] = {2,1,3,6,5,8};
+    int testb[] = {};
     t_stack *a = create_stack(testa, sizeof(testa)/ sizeof(int));
     t_stack *b = create_stack(testb, sizeof(testb)/ sizeof(int));
-//    swap(a, "a");
-//    swap(b, "b");
-//    swap_both(a, b);
-//    push(a, b);
-//    push(b, a);
-//    while (a->size > 0)
-//        push(a, b);
-    while (b->size > 0)
-        push(b, a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    rotate(a);
-//    reverse_rotate(a);
-//    reverse_rotate(a);
-//    reverse_rotate(a);
-//    reverse_rotate(a);
-//    reverse_rotate(a);
-//    reverse_rotate(a);
+
+
+    printf("%d\n", radix_sort(a,b));
+
     return (0);
 }

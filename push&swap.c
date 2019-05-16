@@ -46,7 +46,8 @@ void    push(t_stack *src, t_stack *dest)
     if (src->size > 0)
         src->head->prev = NULL;
     dest->head->prev = NULL;
-    dest->head->next->prev = dest->head;
+    if (dest->size > 1)
+        dest->head->next->prev = dest->head;
     if (src->size == 0 || src->size == 1)
         src->tail = src->size == 1 ? src->head : NULL;
     if (dest->size == 1)
