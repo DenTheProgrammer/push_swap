@@ -16,7 +16,7 @@ typedef struct s_node
     struct s_node *next;
 } t_node;
 
-typedef struct
+typedef struct s_stack
 {
 	char *ops;
 	char *name;
@@ -24,6 +24,8 @@ typedef struct
     t_node *head;
     t_node *tail;
 } t_stack;
+
+
 
 t_node *create_node(int nbr);
 void    add_node_tail(t_node **tail, t_node *node);
@@ -46,4 +48,5 @@ void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops);
 
 
 int is_cyclesorted_desc(t_stack *stack);
+char **ops_trimmer(char **oparr);
 #endif //PUSH_SWAP_PUSH_SWAP_H
