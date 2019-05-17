@@ -41,7 +41,7 @@ void    reverse_rotate(t_stack *stack, char **ops);
 void    reverse_rotate_both(t_stack *a, t_stack *b, char **ops);
 
 void bubble_sort(int *arr, size_t len);
-int    radix_sort(t_stack *a, t_stack *b);
+int    radix_sort(t_stack *a, t_stack *b, char **ops);
 void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops);
 
 

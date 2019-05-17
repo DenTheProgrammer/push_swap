@@ -44,7 +44,7 @@ int get_ops_count(char *ops)
 int main()
 {
 	char *ops = ft_strnew(0);
-    int A[] = {0,1,-1};
+    int A[] = {2,1,0};
     int B[] = {};
     int len = sizeof(A)/ sizeof(int);
     t_stack *a = create_stack(A, sizeof(A)/ sizeof(int), "a", ops);
@@ -64,9 +64,10 @@ int main()
 //	reverse_rotate(b, &ops);
 //	reverse_rotate_both(a, b, &ops);
 //	bubble_sort(A, sizeof(A)/ sizeof(int));
-	mdebbis_sort(a, b, A, len, &ops);
+//	mdebbis_sort(a, b, A, len, &ops);
 //    printf("%d\n", radix_sort(a,b));
 
+	radix_sort(a,b,&ops);
 	printf("%s\n", ops + 1);
 	printf("%d\n", get_ops_count(ops));
     return (0);
