@@ -52,4 +52,5 @@ void    push(t_stack *src, t_stack *dest)
         src->tail = src->size == 1 ? src->head : NULL;
     if (dest->size == 1)
         dest->tail = dest->head;
+    printf("p%c\n", dest->name);
 }

@@ -24,13 +24,14 @@ void    add_node_tail(t_node **tail, t_node *node)
 }
 
 
-t_stack *create_stack(int *arr, int size)
+t_stack *create_stack(int *arr, int size, char name)
 {
     t_stack *new;
     int i;
     t_node *curr;
 
     new = (t_stack*)malloc(sizeof(t_stack));
+    new->name = name;
     new->size = size;
     new->head = NULL;
     new->tail = NULL;

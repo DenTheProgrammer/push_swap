@@ -18,45 +18,21 @@ int is_sorted(t_stack *a)
     return (1);
 }
 
-int    radix_sort(t_stack *a, t_stack *b)
-{
-    int mask = 1;
-    int i;
-    int start_size = a->size;
-    int opcount = 0;
-
-    while (!is_sorted(a))
-    {
-        i = 0;
-        while (i++ < start_size)
-        {
-        	if ((a->head->nbr & mask) == 0)
-                push(a, b);
-        	else
-        		rotate(a);
-        	opcount++;
-        }
-        while (b->size > 0)
-		{
-			push(b, a);
-			opcount++;
-		}
-        mask = mask << 1;
-    }
-	return (opcount);
-}
-
-
+//todo post sort operations trim
 
 int main()
 {
-    int testa[] = {2,1,3,6,5,8};
-    int testb[] = {};
-    t_stack *a = create_stack(testa, sizeof(testa)/ sizeof(int));
-    t_stack *b = create_stack(testb, sizeof(testb)/ sizeof(int));
+    int A[] = {2,1,3,8,5,6};
+    int B[] = {};
+    int len = sizeof(A)/ sizeof(int);
+    t_stack *a = create_stack(A, sizeof(A)/ sizeof(int), 'a');
+    t_stack *b = create_stack(B, 0, 'b');
+//    print_stacks(a, b);
+//    radix_sort(a,b);
+//	bubble_sort(A, sizeof(A)/ sizeof(int));
+	mdebbis_sort(a, b, A, len);
+//    printf("%d\n", radix_sort(a,b));
 
-
-    printf("%d\n", radix_sort(a,b));
 
     return (0);
 }

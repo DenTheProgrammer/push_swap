@@ -17,6 +17,7 @@ void    rotate(t_stack *stack)//ra rb
     tmp->next = NULL;
     tmp->prev = stack->tail;
     stack->tail = tmp;
+    printf("r%c\n", stack->name);
 }
 
 void    rotate_both(t_stack *a, t_stack *b)//rr
