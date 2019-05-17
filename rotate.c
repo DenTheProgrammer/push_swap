@@ -4,10 +4,11 @@
 
 #include "push_swap.h"
 
-void    rotate(t_stack *stack)//ra rb
+void    rotate(t_stack *stack, char **ops)//ra rb
 {
     t_node *tmp;
 
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" r", stack->name, 0), 2);
     if (stack->size <= 1)
         return ;
     tmp = stack->head;
@@ -17,19 +18,23 @@ void    rotate(t_stack *stack)//ra rb
     tmp->next = NULL;
     tmp->prev = stack->tail;
     stack->tail = tmp;
-    printf("r%c\n", stack->name);
+//    printf("r%c\n", stack->name);
 }
 
-void    rotate_both(t_stack *a, t_stack *b)//rr
+void    rotate_both(t_stack *a, t_stack *b, char **ops)//rr
 {
-    rotate(a);
-    rotate(b);
+	static char *null = NULL;
+
+    rotate(a, &null);
+    rotate(b, &null);
+	*ops = ft_strjoin_free(*ops, " rr", 1);
 }
 
-void    reverse_rotate(t_stack *stack)//rra rrb
+void    reverse_rotate(t_stack *stack, char **ops)//rra rrb
 {
     t_node *tmp;
 
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" rr", stack->name, 0), 2);
     if (stack->size <= 1)
         return ;
     tmp = stack->tail;
@@ -41,8 +46,11 @@ void    reverse_rotate(t_stack *stack)//rra rrb
     tmp->prev = NULL;
 }
 
-void    reverse_rotate_both(t_stack *a, t_stack *b)//rrr
+void    reverse_rotate_both(t_stack *a, t_stack *b, char **ops)//rrr
 {
-    reverse_rotate(a);
-    reverse_rotate(b);
+	static char *null = NULL;
+
+	reverse_rotate(a, &null);
+	reverse_rotate(b, &null);
+	*ops = ft_strjoin_free(*ops, " rrr", 1);
 }

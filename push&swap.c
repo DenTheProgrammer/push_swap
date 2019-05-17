@@ -4,11 +4,12 @@
 
 #include "push_swap.h"
 
-void    swap(t_stack *stack, char *name)
+void    swap(t_stack *stack, char **ops)
 {
     t_node *tmp;
 
-    if (stack->size == 1)
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" s", stack->name, 0), 2);
+    if (stack->size < 2)
         return ;
     if (stack->size == 2)
         stack->tail = stack->head;//?
@@ -18,23 +19,27 @@ void    swap(t_stack *stack, char *name)
     tmp->next = stack->head->next;
     stack->head->next = tmp;
     stack->head->next->prev = stack->head;
-    tmp->next->prev = tmp;
-    if (*name)
-        printf("s%s\n", name);
+    if (tmp->next)
+    	tmp->next->prev = tmp;
+//    if (*op)
+//        printf("s%s\n", op);
+
 }
 
-void    swap_both(t_stack *a, t_stack *b)
+void    swap_both(t_stack *a, t_stack *b, char **ops)
 {
-    swap(a, "");
-    swap(b, "");
-    printf("ss");
+	static char *null = NULL;
 
+    swap(a, &null);
+    swap(b, &null);
+	*ops = ft_strjoin_free(*ops, " ss", 1);
 }
 
-void    push(t_stack *src, t_stack *dest)
+void    push(t_stack *src, t_stack *dest, char **ops)
 {
     t_node *tmp;
 
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" p", dest->name, 0), 2);
     if (src->size == 0)
         return ;
     tmp = src->head;
@@ -52,5 +57,5 @@ void    push(t_stack *src, t_stack *dest)
         src->tail = src->size == 1 ? src->head : NULL;
     if (dest->size == 1)
         dest->tail = dest->head;
-    printf("p%c\n", dest->name);
+//    printf("p%c\n", dest->name);
 }

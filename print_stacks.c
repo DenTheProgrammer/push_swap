@@ -9,7 +9,6 @@ void print_stacks(t_stack *a, t_stack *b)
 	t_node *ahead = a->head;
 	t_node *bhead = b->head;
 
-//	system("clear");
 	while (ahead || bhead)
 	{
 		if (ahead && bhead)
