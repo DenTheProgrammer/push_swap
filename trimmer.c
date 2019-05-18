@@ -29,7 +29,7 @@ char	**del(char **arr, int len, int ind)
 	}
 	return (new);
 }
-int is_pointless(char *op1, char *op2)
+static int is_pointless(char *op1, char *op2)
 {
 	if ((ft_strequ(op1, "pa") && ft_strequ(op2, "pb")) || (ft_strequ(op1, "pb") && ft_strequ(op2, "pa")))
 		return (1);

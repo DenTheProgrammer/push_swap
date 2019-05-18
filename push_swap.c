@@ -52,9 +52,35 @@ int *parse_input(int argc, char **argv)
 	return (res);
 }
 
+void	print_info(char *sort_name, char *ops)
+{
+
+	printf("%s:\n--------------------------------------------------\n", sort_name);
+	printf("%s\n", ops + 1);
+	printf("before trim : %d\n", get_ops_count(ops));
+	char **trimmed = ops_trimmer(ft_strsplit(ops, ' '));
+
+	int i=0;
+	while (trimmed[i])
+	{
+		printf("%s ", trimmed[i++]);
+	}
+	printf("\nafter trim : %d\n", i);
+	char **smarter = ops_smarter(trimmed);
+
+	i = 0;
+	while (smarter[i])
+	{
+		printf("%s ", smarter[i++]);
+	}
+	printf("\nafter smarter : %d\n", i);
+	printf("--------------------------------------------------\n");
+}
+
 int main(int argc, char **argv)
 {
-	char *ops = ft_strnew(0);
+	char *ops1 = ft_strnew(0);
+	char *ops2 = ft_strnew(0);
 	int *A = parse_input(argc, argv);
 //	int A[] = {};
 //	int A[] = {1,92,50, 5,17,4,1,2,0, 10,7,4,6,22,0, 15,7,4, 17, 134,11,21,1,92,50, 5,17,4,1,2,0, 10,7,4,6,22,0, 15,7,4, 17, 34,292,250, 25,127,24,21,1,92,50, 5,17,4,1,2,0, 10,7,4,6,22,0, 15,7,4, 17, 34,22,20, 210,27,24,26,222,20, 215,27,24, 217, 234,192,150, 15,117,14,11,12,10, 110,17,14,16,122,110, 115,17,14, 117, 134};
@@ -62,25 +88,17 @@ int main(int argc, char **argv)
 	int B[] = {};
     int len = argc - 1;//?
 //	int len = sizeof(A)/ sizeof(int);
-    t_stack *a = create_stack(A, len, "a", ops);
-    t_stack *b = create_stack(B, 0, "b", ops);
+    t_stack *a = create_stack(A, len, "a", ops1);
+    t_stack *b = create_stack(B, 0, "b", ops1);
+	mdebbis_sort(a, b, A, len, &ops1);
 
+	A = parse_input(argc, argv);
+	a = create_stack(A, len, "a", ops2);
+	b = create_stack(B, 0, "b", ops2);
+	radix_sort(a,b,&ops2);
+//	print_stacks(a,b);
 
-//	mdebbis_sort(a, b, A, len, &ops);
-	radix_sort(a,b,&ops);
-	print_stacks(a,b);
-
-	printf("%s\n", ops + 1);
-	printf("before trim : %d\n", get_ops_count(ops));
-	char **trimmed = ops_trimmer(ft_strsplit(ops, ' '));
-	int trimmed_cnt = 0;
-	while (*trimmed)
-	{
-		printf("%s ", *trimmed);
-		trimmed++;
-		trimmed_cnt++;
-	}
-	printf("\nafter trim : %d\n", trimmed_cnt);
-
+	print_info("my sort", ops1);
+	print_info("radix", ops2);
     return (0);
 }

@@ -37,7 +37,7 @@ static void	sort(t_stack *a, t_stack *b, char **ops)
 	}
 }
 
-void	neg_to_b(t_stack *a, t_stack *b, char **ops)
+static void	neg_to_b(t_stack *a, t_stack *b, char **ops)
 {
 	int neg_count = 0;
 	t_node *ahead;
@@ -58,7 +58,8 @@ void	neg_to_b(t_stack *a, t_stack *b, char **ops)
 		} else rotate(a, ops);
 	}
 }
-void neg_to_a(t_stack *a, t_stack *b, char **ops)
+
+static void neg_to_a(t_stack *a, t_stack *b, char **ops)
 {
 	while (b->size > 0)
 	{

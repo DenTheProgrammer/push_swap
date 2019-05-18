@@ -49,4 +49,6 @@ void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops);
 
 int is_cyclesorted_desc(t_stack *stack);
 char **ops_trimmer(char **oparr);
+char **ops_smarter(char **oparr);
+char	**del(char **arr, int len, int ind);
 #endif //PUSH_SWAP_PUSH_SWAP_H
