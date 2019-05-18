@@ -20,7 +20,7 @@ char	**del(char **arr, int len, int ind)
 	int i = 0;
 	int n = 0;
 
-	new = malloc(sizeof(char*) * len);
+	new = ft_memalloc(sizeof(char*) * len);
 	while (i < len)
 	{
 		if (i != ind)
@@ -39,9 +39,9 @@ int is_pointless(char *op1, char *op2)
 		return (1);
 	if ((ft_strequ(op1, "sa") && ft_strequ(op2, "sa")) || (ft_strequ(op1, "sb") && ft_strequ(op2, "sb")))
 		return (1);
-	if ((ft_strequ(op1, "ss") && ft_strequ(op2, "ss")) || (ft_strequ(op1, "rr") && ft_strequ(op2, "rr")))
+	if ((ft_strequ(op1, "ss") && ft_strequ(op2, "ss")))
 		return (1);
-	if (ft_strequ(op1, "rrr") && ft_strequ(op2, "rrr"))
+	if ((ft_strequ(op1, "rr") && ft_strequ(op2, "rrr")) || (ft_strequ(op1, "rrr") && ft_strequ(op2, "rr")))
 		return (1);
 	return (0);
 }

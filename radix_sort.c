@@ -21,13 +21,13 @@ int    radix_sort(t_stack *a, t_stack *b, char **ops)
 			else
 				rotate(a, ops);
 			opcount++;
-			print_stacks(a,b);
+//			print_stacks(a,b);
 		}
 		while (b->size > 0 && !(a->size == start_size && is_sorted_asc(a)))
 		{
 			push(b, a, ops);
 			opcount++;
-			print_stacks(a,b);
+//			print_stacks(a,b);
 		}
 		mask = mask << 1;
 	}

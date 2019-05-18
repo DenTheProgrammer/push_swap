@@ -23,7 +23,7 @@ void split_in_half(t_stack *a, t_stack *b, const int *tab, size_t len, char **op
 			push(a, b, ops);
 			in_a_cnt--;
 		} else rotate(a, ops);
-		print_stacks(a,b);
+//		print_stacks(a,b);
 	}
 }
 
@@ -147,13 +147,13 @@ void	make_real_sorted(t_stack *a, t_stack *b, char **ops)
 	while (!is_sorted_asc(a))
 	{
 		dir ? rotate(a, ops) : reverse_rotate(a, ops);
-		print_stacks(a,b);
+//		print_stacks(a,b);
 	}
 	dir = b->size > 0 ? rotate_dir(b, find_min(b)) : 0;
 	while (!is_sorted_desc(b))
 	{
 		dir ? rotate(b, ops) : reverse_rotate(b, ops);
-		print_stacks(a,b);
+//		print_stacks(a,b);
 	}
 }
 
@@ -162,14 +162,14 @@ void push_half_back(t_stack *a, t_stack *b, char **ops)
 	while (b->size > 0)
 	{
 		push(b, a, ops);
-		print_stacks(a,b);
+//		print_stacks(a,b);
 	}
 
 }
 
 void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops)
 {
-	print_stacks(a,b);
+//	print_stacks(a,b);
 	if (is_sorted_asc(a))
 		return ;
 	bubble_sort(tab, len);
@@ -185,7 +185,7 @@ void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops)
 			is_cyclesorted_asc(a) ? swap(b, ops) : rotate(a, ops);
 		else
 			rotate_both(a, b, ops);
-		print_stacks(a,b);
+//		print_stacks(a,b);
 	}
 	make_real_sorted(a, b, ops);
 	push_half_back(a, b, ops);
