@@ -8,7 +8,7 @@ void    rotate(t_stack *stack, char **ops)//ra rb
 {
     t_node *tmp;
 
-	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" r", stack->name, 0), 2);
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" r", stack->name, 0), 3);
     if (stack->size <= 1)
         return ;
     tmp = stack->head;
@@ -34,7 +34,7 @@ void    reverse_rotate(t_stack *stack, char **ops)//rra rrb
 {
     t_node *tmp;
 
-	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" rr", stack->name, 0), 2);
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" rr", stack->name, 0), 3);
     if (stack->size <= 1)
         return ;
     tmp = stack->tail;

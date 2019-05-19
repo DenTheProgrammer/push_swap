@@ -36,8 +36,9 @@ int get_ops_count(char *ops)
 	char **splitted = ft_strsplit(ops, ' ');
 
 	int len = 0;
-	while (*splitted++)
+	while (splitted[len])
 		len++;
+	free2dim_chararr(splitted);
 	return (len);
 }
 
@@ -77,6 +78,20 @@ void	print_info(char *sort_name, char *ops)
 	printf("--------------------------------------------------\n");
 }
 
+void	free_stack(t_stack *stack)
+{
+	t_node *head = stack->head;
+	t_node *tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	free(stack);
+}
+
 int main(int argc, char **argv)
 {
 	char *ops1 = ft_strnew(0);
@@ -92,13 +107,16 @@ int main(int argc, char **argv)
     t_stack *b = create_stack(B, 0, "b", ops1);
 	mdebbis_sort(a, b, A, len, &ops1);
 
-	A = parse_input(argc, argv);
-	a = create_stack(A, len, "a", ops2);
-	b = create_stack(B, 0, "b", ops2);
 	radix_sort(a,b,&ops2);
 //	print_stacks(a,b);
 
+
 	print_info("my sort", ops1);
 	print_info("radix", ops2);
+	free_stack(a);
+	free_stack(b);
+	free(A);
+	free(ops1);
+	free(ops2);
     return (0);
 }

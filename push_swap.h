@@ -18,7 +18,6 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	char *ops;
 	char *name;
     int size;
     t_node *head;

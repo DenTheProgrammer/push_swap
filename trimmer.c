@@ -27,6 +27,10 @@ char	**del(char **arr, int len, int ind)
 			new[n++] = arr[i];
 		i++;
 	}
+//	free2dim_chararr(arr);
+	free(arr[ind]);//?
+	free(arr);
+
 	return (new);
 }
 static int is_pointless(char *op1, char *op2)

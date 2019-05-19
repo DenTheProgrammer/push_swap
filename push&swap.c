@@ -8,7 +8,7 @@ void    swap(t_stack *stack, char **ops)
 {
     t_node *tmp;
 
-	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" s", stack->name, 0), 2);
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" s", stack->name, 0), 3);
     if (stack->size < 2)
         return ;
     if (stack->size == 2)
@@ -39,7 +39,7 @@ void    push(t_stack *src, t_stack *dest, char **ops)
 {
     t_node *tmp;
 
-	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" p", dest->name, 0), 2);
+	*ops = ft_strjoin_free(*ops, ft_strjoin_free(" p", dest->name, 0), 3);
     if (src->size == 0)
         return ;
     tmp = src->head;

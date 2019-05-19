@@ -31,7 +31,7 @@ static char **insert(char **arr, char *elem, int len, int ind)
 	int i = 0;
 	int n = 0;
 
-	new = ft_memalloc(sizeof(char*) * (len + 1));
+	new = (char **)ft_memalloc(sizeof(char*) * (len + 2));
 	while (i < len + 1)
 	{
 		new[n] = (n != ind) ? arr[i++] : elem;

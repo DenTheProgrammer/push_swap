@@ -32,7 +32,6 @@ t_stack *create_stack(int *arr, int size, char *name, char *ops)
 
     new = (t_stack*)malloc(sizeof(t_stack));
     new->name = name;
-    new->ops = ops;
     new->size = size;
     new->head = NULL;
     new->tail = NULL;
