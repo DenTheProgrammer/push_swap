@@ -37,6 +37,7 @@ static char **insert(char **arr, char *elem, int len, int ind)
 		new[n] = (n != ind) ? arr[i++] : elem;
 		n++;
 	}
+	free(arr);
 	return (new);
 }
 
