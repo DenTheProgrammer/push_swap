@@ -43,16 +43,6 @@ int get_ops_count(char *ops)
 	return (len);
 }
 
-int *parse_input(int argc, char **argv)
-{
-	int *res;
-	int i = 0;
-
-	res = malloc(sizeof(int) * (argc - 1));
-	while (i < argc - 1)
-		res[i++] = ft_atoi(*++argv);
-	return (res);
-}
 
 void	print_info(char *sort_name, char *ops)
 {
@@ -94,6 +84,26 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
+void	print_output(char **ops)
+{
+	int		i;
+
+	i = 0;
+	while (ops[i])
+		printf("%s\n", ops[i++]);
+	free2dim_chararr(ops);
+}
+
+char 	**result_ops(char *ops)
+{
+	char **trimmed;
+	char **smarted;
+
+	trimmed = ops_trimmer(ft_strsplit(ops, ' '));
+	smarted = ops_smarter(trimmed);
+	return (smarted);
+}
+
 int main(int argc, char **argv)
 {
 	char *ops1 = ft_strnew(0);
@@ -102,20 +112,30 @@ int main(int argc, char **argv)
 
 	int B[] = {};
     int len = argc - 1;//?
-//	int len = sizeof(A)/ sizeof(int);
+
     t_stack *a = create_stack(A, len, "a", ops1);
     t_stack *b = create_stack(B, 0, "b", ops1);
+
 	mdebbis_sort(a, b, A, len, &ops1);
+	free_stack(a);
+	free_stack(b);
 
+
+	A = parse_input(argc, argv);
+	a = create_stack(A, len, "a", ops2);
+	b = create_stack(B, 0, "b", ops2);
 	radix_sort(a,b,&ops2);
-	print_stacks(a,b);
+//	print_stacks(a,b);
 
 
-	print_info("my sort", ops1);
-	print_info("radix", ops2);
+//	print_info("my sort", ops1);
+//	print_info("radix", ops2);
 	free_stack(a);
 	free_stack(b);
 	free(A);
+
+	print_output((get_ops_count(ops1) <= get_ops_count(ops2) ? result_ops(ops1) : result_ops(ops2)));
+
 	free(ops1);
 	free(ops2);
     return (0);

@@ -4,7 +4,6 @@
 
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 # define PUSH_SWAP_PUSH_SWAP_H
-
 # include <stdlib.h>
 # include <stdio.h>
 # include "libft/libft.h"
@@ -24,7 +23,7 @@ typedef struct s_stack
     t_node *tail;
 } t_stack;
 
-
+int *parse_input(int argc, char **argv);
 
 t_node *create_node(int nbr);
 void    add_node_tail(t_node **tail, t_node *node);
@@ -37,9 +36,9 @@ void    swap(t_stack *stack, char **ops);
 void    swap_both(t_stack *a, t_stack *b, char **ops);
 void    push(t_stack *src, t_stack *dest, char **ops);
 void    rotate(t_stack *stack, char **ops);
-void    rotate_both(t_stack *a, t_stack *b, char **ops);
-void    reverse_rotate(t_stack *stack, char **ops);
-void    reverse_rotate_both(t_stack *a, t_stack *b, char **ops);
+void    rot_both(t_stack *a, t_stack *b, char **ops);
+void    rev_rotate(t_stack *stack, char **ops);
+void    rev_rot_both(t_stack *a, t_stack *b, char **ops);
 
 void bubble_sort(int *arr, size_t len);
 void    radix_sort(t_stack *a, t_stack *b, char **ops);

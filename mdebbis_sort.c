@@ -146,13 +146,13 @@ void	make_real_sorted(t_stack *a, t_stack *b, char **ops)
 	dir = a->size > 0 ? rotate_dir(a, find_max(a)) : 0;
 	while (!is_sorted_asc(a))
 	{
-		dir ? rotate(a, ops) : reverse_rotate(a, ops);
+		dir ? rotate(a, ops) : rev_rotate(a, ops);
 //		print_stacks(a,b);
 	}
 	dir = b->size > 0 ? rotate_dir(b, find_min(b)) : 0;
 	while (!is_sorted_desc(b))
 	{
-		dir ? rotate(b, ops) : reverse_rotate(b, ops);
+		dir ? rotate(b, ops) : rev_rotate(b, ops);
 //		print_stacks(a,b);
 	}
 }
@@ -184,7 +184,7 @@ void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops)
 		else if (is_need_swap_desc(b))
 			is_cyclesorted_asc(a) ? swap(b, ops) : rotate(a, ops);
 		else
-			rotate_both(a, b, ops);
+			rot_both(a, b, ops);
 //		print_stacks(a,b);
 	}
 	make_real_sorted(a, b, ops);

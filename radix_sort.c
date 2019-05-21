@@ -63,7 +63,7 @@ static void neg_to_a(t_stack *a, t_stack *b, char **ops)
 {
 	while (b->size > 0)
 	{
-		reverse_rotate(b, ops);
+		rev_rotate(b, ops);
 		push(b, a, ops);
 	}
 }
