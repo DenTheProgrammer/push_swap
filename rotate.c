@@ -28,7 +28,8 @@ void    rot_both(t_stack *a, t_stack *b, char **ops)//rr
 
     rotate(a, NULL);
     rotate(b, NULL);
-	*ops = ft_strjoin_free(*ops, " rr", 1);
+    if (ops)
+		*ops = ft_strjoin_free(*ops, " rr", 1);
 }
 
 void    rev_rotate(t_stack *stack, char **ops)//rra rrb
@@ -54,5 +55,6 @@ void    rev_rot_both(t_stack *a, t_stack *b, char **ops)//rrr
 
 	rev_rotate(a, NULL);
 	rev_rotate(b, NULL);
-	*ops = ft_strjoin_free(*ops, " rrr", 1);
+	if (ops)
+		*ops = ft_strjoin_free(*ops, " rrr", 1);
 }

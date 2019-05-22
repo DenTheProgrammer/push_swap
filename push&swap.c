@@ -33,7 +33,8 @@ void    swap_both(t_stack *a, t_stack *b, char **ops)
 
     swap(a, NULL);
     swap(b, NULL);
-	*ops = ft_strjoin_free(*ops, " ss", 1);
+	if (ops)
+		*ops = ft_strjoin_free(*ops, " ss", 1);
 }
 
 void    push(t_stack *src, t_stack *dest, char **ops)

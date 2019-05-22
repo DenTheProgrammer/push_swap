@@ -24,7 +24,7 @@ void    add_node_tail(t_node **tail, t_node *node)
 }
 
 
-t_stack *create_stack(int *arr, int size, char *name, char *ops)
+t_stack *create_stack(int *arr, int size, char *name)
 {
     t_stack *new;
     int i;
@@ -44,4 +44,18 @@ t_stack *create_stack(int *arr, int size, char *name, char *ops)
         add_node_tail(&(new->tail), curr);
     }
     return (new);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_node *head = stack->head;
+	t_node *tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	free(stack);
 }

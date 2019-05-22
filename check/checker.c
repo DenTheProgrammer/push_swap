@@ -1,14 +1,11 @@
 //
-// Created by den on 17.05.19.
+// Created by Maybell Debbi on 2019-05-22.
 //
-//todo how to give array?
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	execute_operation(char *op, t_stack *a, t_stack *b)
 {
-//	static char *nul = NULL;
-
 	if (ft_strequ(op, "pb") || ft_strequ(op, "pa"))
 		ft_strequ(op, "pb") ? push(a, b, NULL) : push(b, a, NULL);
 	else if (ft_strequ(op, "sb") || ft_strequ(op, "sa"))
@@ -27,23 +24,22 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 
 void	read_ops(t_stack *a, t_stack *b)
 {
-//	print_stacks(a, b);
 	char	*line;
 	while (get_next_line(0, &line) > 0)
 	{
 		execute_operation(line, a, b);
-//		print_stacks(a, b);
+		print_stacks(a, b);//
 	}
 }
 
-//int main(int argc, char **argv)
-//{
-//	int *input;
-//	int B[] = {};
-//
-//	input = parse_input(argc, argv);
-//	t_stack *a = create_stack(input, argc - 1, NULL, ft_strnew(0));
-//	t_stack *b = create_stack(B, 0, NULL, ft_strnew(0));
-//	read_ops(a, b);
-//	return (printf("%s\n", is_sorted_asc(a) && (a->size == argc - 1) ? "OK" : "KO"));
-//}
+int main(int argc, char **argv)
+{
+	int *input;
+	int B[] = {};
+
+	input = parse_input(argc, argv);
+	t_stack *a = create_stack(input, argc - 1, NULL);
+	t_stack *b = create_stack(B, 0, NULL);
+	read_ops(a, b);
+	return (printf("%s\n", is_sorted_asc(a) && (a->size == argc - 1) ? "OK" : "KO"));
+}

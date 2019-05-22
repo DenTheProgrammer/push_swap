@@ -4,9 +4,9 @@
 //#include <time.h>
 //#include <stdio.h>
 //
-//#define MAS 100
-//#define MAXP 50
-//#define MINP -50
+//#define MAS 20
+//#define MAXP 10
+//#define MINP -10
 //
 //int     main () {
 //	int i, j;

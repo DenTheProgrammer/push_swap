@@ -27,8 +27,9 @@ int *parse_input(int argc, char **argv);
 
 t_node *create_node(int nbr);
 void    add_node_tail(t_node **tail, t_node *node);
-t_stack *create_stack(int *arr, int size, char *name, char *ops);
+t_stack *create_stack(int *arr, int size, char *name);
 void print_stacks(t_stack *a, t_stack *b);
+void	free_stack(t_stack *stack);
 int is_sorted_asc(t_stack *a);
 int is_sorted_desc(t_stack *a);
 
