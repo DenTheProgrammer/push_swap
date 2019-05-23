@@ -4,13 +4,43 @@
 
 #include "push_swap.h"
 
-int *parse_input(int argc, char **argv)
+static int		ft_atoi_int(const char *str)
+{
+	int				i;
+	long long int	answer;
+	int				buff;
+	int				simb;
+
+	i = 0;
+	simb = 0;
+	answer = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+		   str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			simb = 1;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		buff = str[i++] - '0';
+		if (answer > 922337203685477580.7)
+			throw_error("Error\n");
+		answer = (answer * 10) + buff;
+	}
+	if (simb != 0)
+		answer *= -1;
+	if (answer > 2147483647 || answer < -2147483648 || ft_strlen(str) > 10)
+		throw_error("Error\n");
+	return ((int)answer);
+}
+
+int *parse_input(int len, char **arr)
 {
 	int *res;
 	int i = 0;
 
-	res = malloc(sizeof(int) * (argc - 1));
-	while (i < argc - 1)
-		res[i++] = ft_atoi(*++argv);
+	res = malloc(sizeof(int) * (len));
+	while (i < len)
+		res[i++] = ft_atoi_int(*arr++);
 	return (res);
 }

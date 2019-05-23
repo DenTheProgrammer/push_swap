@@ -24,6 +24,7 @@ typedef struct s_stack
 } t_stack;
 
 int *parse_input(int argc, char **argv);
+int 	is_valid_input(char **input, int size);
 
 t_node *create_node(int nbr);
 void    add_node_tail(t_node **tail, t_node *node);
@@ -50,4 +51,6 @@ int is_cyclesorted_desc(t_stack *stack);
 char **ops_trimmer(char **oparr);
 char **ops_smarter(char **oparr);
 char	**del(char **arr, int len, int ind);
+
+void	throw_error(char *msg);
 #endif //PUSH_SWAP_PUSH_SWAP_H

@@ -39,11 +39,13 @@ char 	**result_ops(char *ops)
 int		main(int argc, char **argv)
 {
 	char *ops = ft_strnew(0);
-	int *A = parse_input(argc, argv);
+	int *A = parse_input(argc - 1, argv + 1);
 	t_stack *a;
 	t_stack *b;
 	int B[] = {};
 
+	if (!is_valid_input(argv + 1, argc - 1))
+		throw_error("Error\n");
     a = create_stack(A, argc - 1, "a");
     b = create_stack(B, 0, "b");
 	if (argc < 20)

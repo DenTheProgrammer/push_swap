@@ -19,27 +19,44 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 	else if (ft_strequ(op, "ss"))
 		swap_both(a, b, NULL);
 	else
-		printf("Unknown operation: %s\n", op);
+		throw_error("Error\n");
 }
 
-void	read_ops(t_stack *a, t_stack *b)
+void	read_ops(t_stack *a, t_stack *b, int v)
 {
 	char	*line;
+
+	line = NULL;
+	if (v)
+		print_stacks(a, b);
 	while (get_next_line(0, &line) > 0)
 	{
 		execute_operation(line, a, b);
-		print_stacks(a, b);//
+		if (v)
+			print_stacks(a, b);
 	}
+	free(line);
 }
 
 int main(int argc, char **argv)
 {
 	int *input;
 	int B[] = {};
+	int sorted;
+	int visual;
 
-	input = parse_input(argc, argv);
-	t_stack *a = create_stack(input, argc - 1, NULL);
+	visual = ft_strequ(argv[1], "-v");
+	if (argc < 2)
+		return (0);
+	if (!is_valid_input(argv + 1 + visual, argc - 1 - visual))
+		throw_error("Error\n");
+	input = parse_input(argc - 1 - visual, argv + 1 + visual);
+	t_stack *a = create_stack(input, argc - 1 - visual, NULL);
 	t_stack *b = create_stack(B, 0, NULL);
-	read_ops(a, b);
-	return (printf("%s\n", is_sorted_asc(a) && (a->size == argc - 1) ? "OK" : "KO"));
+	free(input);
+	read_ops(a, b, visual);
+	sorted = is_sorted_asc(a) && (a->size == argc - 1 - visual);
+	free_stack(a);
+	free_stack(b);
+	return (printf("%s\n", sorted ? "OK" : "KO"));
 }
