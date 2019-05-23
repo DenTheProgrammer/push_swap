@@ -1,6 +1,14 @@
-//
-// Created by Maybell Debbi on 2019-05-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list&stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:28:03 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:28:04 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -58,4 +66,14 @@ void	free_stack(t_stack *stack)
 		free(tmp);
 	}
 	free(stack);
+}
+
+int arrlen(char **arr)
+{
+	int len;
+
+	len = 0;
+	while (*arr++)
+		len++;
+	return (len);
 }

@@ -1,20 +1,17 @@
-//
-// Created by Maybell Debbi on 2019-05-16.
-//
-//todo error management
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:27:20 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:27:28 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int get_ops_count(char *ops)
-{
-	char **splitted = ft_strsplit(ops, ' ');
-
-	int len = 0;
-	while (splitted[len])
-		len++;
-	free2dim_chararr(splitted);
-	return (len);
-}
 
 void	print_output(char **ops)
 {
@@ -22,7 +19,7 @@ void	print_output(char **ops)
 
 	i = 0;
 	while (ops[i])
-		printf("%s\n", ops[i++]);
+		ft_printf("%s\n", ops[i++]);
 	free2dim_chararr(ops);
 }
 
@@ -39,23 +36,25 @@ char 	**result_ops(char *ops)
 int		main(int argc, char **argv)
 {
 	char *ops = ft_strnew(0);
-	int *A = parse_input(argc - 1, argv + 1);
+	int *A;
 	t_stack *a;
 	t_stack *b;
 	int B[] = {};
 
+	if (argc == 2)
+	{
+		argv = one_line_fix(argv);
+		argc = arrlen(argv + 1) + 1;
+	}
+	A = parseinput(argc - 1, argv + 1);
 	if (!is_valid_input(argv + 1, argc - 1))
 		throw_error("Error\n");
     a = create_stack(A, argc - 1, "a");
     b = create_stack(B, 0, "b");
 	if (argc < 20)
-	{
 		mdebbis_sort(a, b, A, argc - 1, &ops);
-	}
 	else
-	{
 		radix_sort(a,b,&ops);
-	}
 	free(A);
 	print_output(result_ops(ops));
 	free_stack(a);

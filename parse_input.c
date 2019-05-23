@@ -1,6 +1,14 @@
-//
-// Created by den on 19.05.19.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:28:24 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:28:26 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -34,7 +42,7 @@ static int		ft_atoi_int(const char *str)
 	return ((int)answer);
 }
 
-int *parse_input(int len, char **arr)
+int *parseinput(int len, char **arr)
 {
 	int *res;
 	int i = 0;

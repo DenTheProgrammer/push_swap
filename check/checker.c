@@ -1,6 +1,14 @@
-//
-// Created by Maybell Debbi on 2019-05-22.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:27:04 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:27:06 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
@@ -48,9 +56,14 @@ int main(int argc, char **argv)
 	visual = ft_strequ(argv[1], "-v");
 	if (argc < 2)
 		return (0);
+	if (argc == 2)
+	{
+		argv = one_line_fix(argv);
+		argc = arrlen(argv + 1) + 1;
+	}
 	if (!is_valid_input(argv + 1 + visual, argc - 1 - visual))
 		throw_error("Error\n");
-	input = parse_input(argc - 1 - visual, argv + 1 + visual);
+	input = parseinput(argc - 1 - visual, argv + 1 + visual);
 	t_stack *a = create_stack(input, argc - 1 - visual, NULL);
 	t_stack *b = create_stack(B, 0, NULL);
 	free(input);
@@ -58,5 +71,5 @@ int main(int argc, char **argv)
 	sorted = is_sorted_asc(a) && (a->size == argc - 1 - visual);
 	free_stack(a);
 	free_stack(b);
-	return (printf("%s\n", sorted ? "OK" : "KO"));
+	return (ft_printf("%s\n", sorted ? "OK" : "KO"));
 }
