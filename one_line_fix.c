@@ -1,8 +1,10 @@
 #include "push_swap.h"
 
-char **one_line_fix(char **argv)
+char **one_line_fix(char *str, int visual)
 {
-	argv = ft_strsplit(argv[1], ' ');
-	argv = argv - 1;
+	char **argv;
+
+	argv = ft_strsplit(str, ' ');
+	argv = argv - 1 - visual;
 	return (argv);
 }

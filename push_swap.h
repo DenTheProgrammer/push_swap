@@ -60,7 +60,7 @@ int is_cyclesorted_desc(t_stack *stack);
 char **ops_trimmer(char **oparr);
 char **ops_smarter(char **oparr);
 char	**del(char **arr, int len, int ind);
-char **one_line_fix(char **argv);
+char **one_line_fix(char *str, int visual);
 void	throw_error(char *msg);
 int arrlen(char **arr);
 #endif

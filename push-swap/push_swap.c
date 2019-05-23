@@ -43,7 +43,7 @@ int		main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		argv = one_line_fix(argv);
+		argv = one_line_fix(argv[1], 0);
 		argc = arrlen(argv + 1) + 1;
 	}
 	A = parseinput(argc - 1, argv + 1);

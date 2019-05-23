@@ -27,7 +27,9 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 	else if (ft_strequ(op, "ss"))
 		swap_both(a, b, NULL);
 	else
-		throw_error("Error\n");
+//		throw_error("Error\n");
+//		ARG="30 2 -41 -12 12 4 -16 -18 -13 -27 34 -14 -37 17 -43 42 -22"
+	ft_printf("%s\n",op);
 }
 
 void	read_ops(t_stack *a, t_stack *b, int v)
@@ -56,10 +58,10 @@ int main(int argc, char **argv)
 	visual = ft_strequ(argv[1], "-v");
 	if (argc < 2)
 		return (0);
-	if (argc == 2)
+	if (argc == 2 + visual)
 	{
-		argv = one_line_fix(argv);
-		argc = arrlen(argv + 1) + 1;
+		argv = one_line_fix(argv[1 + visual], visual);
+		argc = arrlen(argv + 1 + visual) + 1 + visual;
 	}
 	if (!is_valid_input(argv + 1 + visual, argc - 1 - visual))
 		throw_error("Error\n");
