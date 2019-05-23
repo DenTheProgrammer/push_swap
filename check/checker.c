@@ -28,7 +28,7 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 		swap_both(a, b, NULL);
 	else
 //		throw_error("Error\n");
-//		ARG="30 2 -41 -12 12 4 -16 -18 -13 -27 34 -14 -37 17 -43 42 -22"
+//		ARG="30 2 -41 -12 12 4 -16 -18 -13 -27 34 -14 -37 17 -43 42  -22"
 	ft_printf("%s\n",op);
 }
 

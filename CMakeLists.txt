@@ -1,0 +1,134 @@
+cmake_minimum_required(VERSION 3.14)
+project(push_swap C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(.)
+include_directories(check)
+include_directories(libft)
+include_directories(printf)
+include_directories(printf/includes)
+include_directories(printf/libft)
+include_directories(printf/srcs)
+include_directories(push-swap)
+
+add_executable(push_swap
+        check/checker.c
+        libft/ft_abs.c
+        libft/ft_atoi.c
+        libft/ft_bzero.c
+        libft/ft_free2dim_arr.c
+        libft/ft_isalnum.c
+        libft/ft_isalpha.c
+        libft/ft_isascii.c
+        libft/ft_isdigit.c
+        libft/ft_isprint.c
+        libft/ft_isspace.c
+        libft/ft_itoa.c
+        libft/ft_itoa_base.c
+        libft/ft_itoa_float.c
+        libft/ft_itoa_long.c
+        libft/ft_itoa_Ubase.c
+        libft/ft_itoa_uns.c
+        libft/ft_lstadd.c
+        libft/ft_lstdel.c
+        libft/ft_lstdelone.c
+        libft/ft_lstiter.c
+        libft/ft_lstlen.c
+        libft/ft_lstmap.c
+        libft/ft_lstnew.c
+        libft/ft_lstpush.c
+        libft/ft_memalloc.c
+        libft/ft_memccpy.c
+        libft/ft_memchr.c
+        libft/ft_memcmp.c
+        libft/ft_memcpy.c
+        libft/ft_memdel.c
+        libft/ft_memmove.c
+        libft/ft_memset.c
+        libft/ft_putchar.c
+        libft/ft_putchar_fd.c
+        libft/ft_putendl.c
+        libft/ft_putendl_fd.c
+        libft/ft_putnbr.c
+        libft/ft_putnbr_fd.c
+        libft/ft_putstr.c
+        libft/ft_putstr_fd.c
+        libft/ft_str_generate.c
+        libft/ft_str_removechar.c
+        libft/ft_strcat.c
+        libft/ft_strchr.c
+        libft/ft_strclr.c
+        libft/ft_strcmp.c
+        libft/ft_strcpy.c
+        libft/ft_strcpynoendl.c
+        libft/ft_strdel.c
+        libft/ft_strdup.c
+        libft/ft_strequ.c
+        libft/ft_strinsert.c
+        libft/ft_striter.c
+        libft/ft_striteri.c
+        libft/ft_strjoin.c
+        libft/ft_strjoin_free.c
+        libft/ft_strlcat.c
+        libft/ft_strlen.c
+        libft/ft_strlen_safe.c
+        libft/ft_strmap.c
+        libft/ft_strmapi.c
+        libft/ft_strncat.c
+        libft/ft_strncmp.c
+        libft/ft_strncpy.c
+        libft/ft_strnequ.c
+        libft/ft_strnew.c
+        libft/ft_strnstr.c
+        libft/ft_strpushchar.c
+        libft/ft_strrchr.c
+        libft/ft_strsplit.c
+        libft/ft_strstr.c
+        libft/ft_strsub.c
+        libft/ft_strtolower.c
+        libft/ft_strtoupper.c
+        libft/ft_strtrim.c
+        libft/ft_stupid_putstr.c
+        libft/ft_tolower.c
+        libft/ft_toupper.c
+        libft/get_next_line.c
+        libft/libft.h
+        libft/throw_error.c
+        printf/includes/printf.h
+        printf/srcs/addit.c
+        printf/srcs/apply_flags.c
+        printf/srcs/apply_formats.c
+        printf/srcs/apply_precision.c
+        printf/srcs/apply_pres_f.c
+        printf/srcs/apply_specific_format.c
+        printf/srcs/apply_specific_format2.c
+        printf/srcs/apply_width.c
+        printf/srcs/flist.c
+        printf/srcs/float.c
+        printf/srcs/fract.c
+        printf/srcs/ft_printf.c
+        printf/srcs/mult.c
+        printf/srcs/output.c
+        printf/srcs/parse_arguments.c
+        printf/srcs/parse_format.c
+        printf/srcs/power.c
+        printf/srcs/printf.h
+        printf/srcs/start.c
+        printf/srcs/whole.c
+        push-swap/push_swap.c
+        bubble_sort.c
+        is_sorted.c
+        list&stack.c
+        mdebbis_sort.c
+        parse_input.c
+        print_stacks.c
+        printf.h
+        push&swap.c
+        push_swap.h
+        radix_sort.c
+        rand.c
+        rotate.c
+        smarter.c
+        trimmer.c
+        validation.c one_line_fix.c)
