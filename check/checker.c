@@ -27,9 +27,8 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 	else if (ft_strequ(op, "ss"))
 		swap_both(a, b, NULL);
 	else
-//		throw_error("Error\n");
-//		ARG="30 2 -41 -12 12 4 -16 -18 -13 -27 34 -14 -37 17 -43 42 -22"
-	ft_printf("%s\n",op);
+		throw_error("Error\n");
+//	ft_printf("%s\n",op);
 }
 
 void	read_ops(t_stack *a, t_stack *b, int v)
@@ -51,27 +50,27 @@ void	read_ops(t_stack *a, t_stack *b, int v)
 int main(int argc, char **argv)
 {
 	int *input;
-	int B[] = {};
 	int sorted;
 	int visual;
+	char **arr;
 
 	visual = ft_strequ(argv[1], "-v");
+	arr = argvdup(argc, argv, visual);
 	if (argc < 2)
 		return (0);
 	if (argc == 2 + visual)
-	{
-		argv = one_line_fix(argv[1 + visual], visual);
-		argc = arrlen(argv + 1 + visual) + 1 + visual;
-	}
-	if (!is_valid_input(argv + 1 + visual, argc - 1 - visual))
+		arr = one_line_fix(arr);
+	argc = arrlen(arr);
+	if (!is_valid_input(arr, argc))
 		throw_error("Error\n");
-	input = parseinput(argc - 1 - visual, argv + 1 + visual);
-	t_stack *a = create_stack(input, argc - 1 - visual, NULL);
-	t_stack *b = create_stack(B, 0, NULL);
+	input = parseinput(argc, arr);
+	t_stack *a = create_stack(input, argc, NULL);
+	t_stack *b = create_stack(NULL, 0, NULL);
 	free(input);
 	read_ops(a, b, visual);
-	sorted = is_sorted_asc(a) && (a->size == argc - 1 - visual);
+	sorted = is_sorted_asc(a) && (a->size == argc);
 	free_stack(a);
 	free_stack(b);
+	free2dim_chararr(arr);
 	return (ft_printf("%s\n", sorted ? "OK" : "KO"));
 }

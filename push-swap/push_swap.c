@@ -39,20 +39,19 @@ int		main(int argc, char **argv)
 	int *A;
 	t_stack *a;
 	t_stack *b;
-	int B[] = {};
+	char **arr;
 
+	arr = argvdup(argc, argv, 0);
 	if (argc == 2)
-	{
-		argv = one_line_fix(argv[1], 0);
-		argc = arrlen(argv + 1) + 1;
-	}
-	A = parseinput(argc - 1, argv + 1);
-	if (!is_valid_input(argv + 1, argc - 1))
+		arr = one_line_fix(arr);
+	argc = arrlen(arr);
+	A = parseinput(argc, arr);
+	if (!is_valid_input(arr, argc))
 		throw_error("Error\n");
-    a = create_stack(A, argc - 1, "a");
-    b = create_stack(B, 0, "b");
+    a = create_stack(A, argc, "a");
+    b = create_stack(NULL, 0, "b");
 	if (argc < 20)
-		mdebbis_sort(a, b, A, argc - 1, &ops);
+		mdebbis_sort(a, b, A, argc, &ops);
 	else
 		radix_sort(a,b,&ops);
 	free(A);
@@ -60,5 +59,6 @@ int		main(int argc, char **argv)
 	free_stack(a);
 	free_stack(b);
 	free(ops);
+	free2dim_chararr(arr);
     return (0);
 }

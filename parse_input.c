@@ -12,6 +12,23 @@
 
 #include "push_swap.h"
 
+char	**argvdup(int argc, char **argv, int visual)
+{
+	char	**res;
+	int		i;
+	int		r;
+
+	r = 0;
+	i = 1 + visual;
+	res = (char **)malloc(sizeof(char*) * argc - visual);
+	while (i < argc)
+	{
+		res[r++] = ft_strdup(argv[i++]);
+	}
+	res[r] = NULL;
+	return (res);
+}
+
 static int		ft_atoi_int(const char *str)
 {
 	int				i;
