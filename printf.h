@@ -16,7 +16,7 @@
 # define BASE 10
 # define STACK_SIZE 10002
 # define FIRST_BIT_M (unsigned long)1 << 63u
-#include "libft/libft.h"
+#include "libft.h"
 # include <stdarg.h>
 
 int						ft_printf(const char *str, ...);

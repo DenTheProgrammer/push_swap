@@ -24,11 +24,14 @@ static int		get_len(char **arr)
 
 static char		*is_stupid(char *s1, char *s2)
 {
-	if ((ft_strequ(s1, "sa") && ft_strequ(s2, "sb")) || (ft_strequ(s1, "sb") && ft_strequ(s2, "sa")))
+	if ((ft_strequ(s1, "sa") && ft_strequ(s2, "sb")) ||
+				(ft_strequ(s1, "sb") && ft_strequ(s2, "sa")))
 		return (ft_strdup("ss"));
-	if ((ft_strequ(s1, "ra") && ft_strequ(s2, "rb")) || (ft_strequ(s1, "rb") && ft_strequ(s2, "ra")))
+	if ((ft_strequ(s1, "ra") && ft_strequ(s2, "rb")) ||
+				(ft_strequ(s1, "rb") && ft_strequ(s2, "ra")))
 		return (ft_strdup("rr"));
-	if ((ft_strequ(s1, "rra") && ft_strequ(s2, "rrb")) || (ft_strequ(s1, "rrb") && ft_strequ(s2, "rra")))
+	if ((ft_strequ(s1, "rra") && ft_strequ(s2, "rrb")) ||
+				(ft_strequ(s1, "rrb") && ft_strequ(s2, "rra")))
 		return (ft_strdup("rrr"));
 	return (NULL);
 }

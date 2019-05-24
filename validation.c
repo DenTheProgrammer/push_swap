@@ -17,12 +17,12 @@ int		is_number(char *str)
 	if (*str == '-' || *str == '+')
 		str++;
 	while (*str)
-		if(!ft_isdigit(*str++))
+		if (!ft_isdigit(*str++))
 			return (0);
 	return (1);
 }
 
-int 	has_duplicates(char **input, int size)
+int		has_duplicates(char **input, int size)
 {
 	int i;
 	int j;
@@ -42,7 +42,7 @@ int 	has_duplicates(char **input, int size)
 	return (0);
 }
 
-int 	is_valid_input(char **input, int size)
+int		is_valid_input(char **input, int size)
 {
 	int i;
 

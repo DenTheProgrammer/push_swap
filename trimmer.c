@@ -39,23 +39,27 @@ char			**del(char **arr, int len, int ind)
 	}
 	free(arr[ind]);
 	free(arr);
-
 	return (new);
 }
 
 static int		is_pointless(char *op1, char *op2)
 {
-	if ((ft_strequ(op1, "pa") && ft_strequ(op2, "pb")) || (ft_strequ(op1, "pb") && ft_strequ(op2, "pa")))
+	if ((ft_strequ(op1, "pa") && ft_strequ(op2, "pb")) ||
+						(ft_strequ(op1, "pb") && ft_strequ(op2, "pa")))
 		return (1);
-	if ((ft_strequ(op1, "ra") && ft_strequ(op2, "rra")) || (ft_strequ(op1, "rra") && ft_strequ(op2, "ra")))
+	if ((ft_strequ(op1, "ra") && ft_strequ(op2, "rra")) ||
+						(ft_strequ(op1, "rra") && ft_strequ(op2, "ra")))
 		return (1);
-	if ((ft_strequ(op1, "rb") && ft_strequ(op2, "rrb")) || (ft_strequ(op1, "rrb") && ft_strequ(op2, "rb")))
+	if ((ft_strequ(op1, "rb") && ft_strequ(op2, "rrb")) ||
+						(ft_strequ(op1, "rrb") && ft_strequ(op2, "rb")))
 		return (1);
-	if ((ft_strequ(op1, "sa") && ft_strequ(op2, "sa")) || (ft_strequ(op1, "sb") && ft_strequ(op2, "sb")))
+	if ((ft_strequ(op1, "sa") && ft_strequ(op2, "sa")) ||
+						(ft_strequ(op1, "sb") && ft_strequ(op2, "sb")))
 		return (1);
 	if ((ft_strequ(op1, "ss") && ft_strequ(op2, "ss")))
 		return (1);
-	if ((ft_strequ(op1, "rr") && ft_strequ(op2, "rrr")) || (ft_strequ(op1, "rrr") && ft_strequ(op2, "rr")))
+	if ((ft_strequ(op1, "rr") && ft_strequ(op2, "rrr")) ||
+						(ft_strequ(op1, "rrr") && ft_strequ(op2, "rr")))
 		return (1);
 	return (0);
 }

@@ -1,24 +1,18 @@
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 
 all:
-	make -C libft
 	make checker
 	make push_swap
 
 push_swap:
-	gcc $(FLAGS) one_line_fix.c push-swap/push_swap.c radix_sort.c mdebbis_sort.c list\&stack.c push\&swap.c rotate.c smarter.c trimmer.c bubble_sort.c is_sorted.c parse_input.c validation.c libft/libft.a libftprintf.a -o push_swap
+	gcc $(FLAGS) is_need_swap.c is_cyclesorted.c find_min_max.c one_line_fix.c push-swap/push_swap.c radix_sort.c mdebbis_sort.c listandstack.c pushandswap.c rotate.c smarter.c trimmer.c bubble_sort.c is_sorted.c parse_input.c validation.c libft.a libftprintf.a -o push_swap
 
 checker:
-	gcc $(FLAGS) one_line_fix.c print_stacks.c check/checker.c push\&swap.c rotate.c validation.c list\&stack.c is_sorted.c parse_input.c libft/libft.a libftprintf.a -o checker
+	gcc $(FLAGS) one_line_fix.c print_stacks.c check/checker.c pushandswap.c rotate.c validation.c listandstack.c is_sorted.c parse_input.c libft.a libftprintf.a -o checker
 
 clean:
 	rm -rf push_swap checker
-	make clean -C libft
 
-fclean: clean
-	make fclean -C libft
-
-re: fclean
-	make re -C libft
+re: clean
 	make all

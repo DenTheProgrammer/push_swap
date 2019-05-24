@@ -25,6 +25,7 @@ int		is_sorted_asc(t_stack *a)
 	}
 	return (1);
 }
+
 int		is_sorted_desc(t_stack *a)
 {
 	t_node *head;

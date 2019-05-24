@@ -50,23 +50,23 @@ int		main(int argc, char **argv)
 {
 	int		*input;
 	int		sorted;
-	int		visual;
 	char	**arr;
+	t_stack *a;
+	t_stack *b;
 
-	visual = ft_strequ(argv[1], "-v");
-	arr = argvdup(argc, argv, visual);
+	arr = argvdup(argc, argv, ft_strequ(argv[1], "-v"));
 	if (argc < 2)
 		return (0);
-	if (argc == 2 + visual)
+	if (argc == 2 + ft_strequ(argv[1], "-v"))
 		arr = one_line_fix(arr);
 	argc = arrlen(arr);
 	if (!is_valid_input(arr, argc))
 		throw_error("Error\n");
 	input = parseinput(argc, arr);
-	t_stack *a = create_stack(input, argc, NULL);
-	t_stack *b = create_stack(NULL, 0, NULL);
+	a = create_stack(input, argc, NULL);
+	b = create_stack(NULL, 0, NULL);
 	free(input);
-	read_ops(a, b, visual);
+	read_ops(a, b, ft_strequ(argv[1], "-v"));
 	sorted = is_sorted_asc(a) && (a->size == argc);
 	free_stack(a);
 	free_stack(b);

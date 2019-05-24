@@ -40,11 +40,10 @@ static int	ft_atoi_int(const char *str)
 	simb = 0;
 	answer = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-		   str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
-			simb = 1;
+	if ((str[i] == '-' || str[i] == '+') && str[i++] == '-')
+		simb = 1;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		buff = str[i++] - '0';

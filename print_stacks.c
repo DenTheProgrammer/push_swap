@@ -29,14 +29,14 @@ void	print_stacks(t_stack *a, t_stack *b)
 		}
 		else if (ahead)
 		{
-			ft_printf("|%11d|    |     |\n", ahead->nbr);
+			ft_printf("|%11d|    |           |\n", ahead->nbr);
 			ahead = ahead->next;
 		}
 		else
 		{
-			ft_printf("|     |    |%11d|\n", bhead->nbr);
+			ft_printf("|           |    |%11d|\n", bhead->nbr);
 			bhead = bhead->next;
 		}
 	}
-	ft_printf("        a                b  \n");
+	ft_printf("      a                b  \n");
 }

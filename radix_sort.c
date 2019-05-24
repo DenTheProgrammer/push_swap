@@ -36,9 +36,7 @@ static void		sort(t_stack *a, t_stack *b, char **ops)
 				rotate(a, ops);
 		}
 		while (pushcnt-- && !(a->size == start_size && is_sorted_asc(a)))
-		{
 			push(b, a, ops);
-		}
 		mask = mask << 1;
 	}
 }
@@ -62,7 +60,9 @@ static void		neg_to_b(t_stack *a, t_stack *b, char **ops)
 		{
 			push(a, b, ops);
 			neg_count--;
-		} else rotate(a, ops);
+		}
+		else
+			rotate(a, ops);
 	}
 }
 
@@ -75,7 +75,7 @@ static void		neg_to_a(t_stack *a, t_stack *b, char **ops)
 	}
 }
 
-void    		radix_sort(t_stack *a, t_stack *b, char **ops)
+void			radix_sort(t_stack *a, t_stack *b, char **ops)
 {
 	neg_to_b(a, b, ops);
 	sort(a, b, ops);
