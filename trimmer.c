@@ -1,10 +1,18 @@
-//
-// Created by den on 17.05.19.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   trimmer.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:31:03 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:31:04 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int get_len(char **arr)
+static int		get_len(char **arr)
 {
 	int len;
 
@@ -14,12 +22,14 @@ static int get_len(char **arr)
 	return (len);
 }
 
-char	**del(char **arr, int len, int ind)
+char			**del(char **arr, int len, int ind)
 {
-	char **new;
-	int i = 0;
-	int n = 0;
+	char	**new;
+	int		i;
+	int		n;
 
+	i = 0;
+	n = 0;
 	new = ft_memalloc(sizeof(char*) * len);
 	while (i < len)
 	{
@@ -27,13 +37,13 @@ char	**del(char **arr, int len, int ind)
 			new[n++] = arr[i];
 		i++;
 	}
-//	free2dim_chararr(arr);
-	free(arr[ind]);//?
+	free(arr[ind]);
 	free(arr);
 
 	return (new);
 }
-static int is_pointless(char *op1, char *op2)
+
+static int		is_pointless(char *op1, char *op2)
 {
 	if ((ft_strequ(op1, "pa") && ft_strequ(op2, "pb")) || (ft_strequ(op1, "pb") && ft_strequ(op2, "pa")))
 		return (1);
@@ -50,13 +60,14 @@ static int is_pointless(char *op1, char *op2)
 	return (0);
 }
 
-
-char **ops_trimmer(char **oparr)
+char			**ops_trimmer(char **oparr)
 {
-	int len = get_len(oparr);
-	int delcount = 1;
+	int len;
+	int delcount;
 	int i;
 
+	delcount = 1;
+	len = get_len(oparr);
 	while (delcount != 0)
 	{
 		i = 0;

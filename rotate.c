@@ -1,10 +1,18 @@
-//
-// Created by Maybell Debbi on 2019-05-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:30:28 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:30:30 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rotate(t_stack *stack, char **ops)//ra rb
+void    rotate(t_stack *stack, char **ops)
 {
     t_node *tmp;
 
@@ -19,20 +27,17 @@ void    rotate(t_stack *stack, char **ops)//ra rb
     tmp->next = NULL;
     tmp->prev = stack->tail;
     stack->tail = tmp;
-//    printf("r%c\n", stack->name);
 }
 
-void    rot_both(t_stack *a, t_stack *b, char **ops)//rr
+void    rot_both(t_stack *a, t_stack *b, char **ops)
 {
-//	static char *null = NULL;
-
     rotate(a, NULL);
     rotate(b, NULL);
     if (ops)
 		*ops = ft_strjoin_free(*ops, " rr", 1);
 }
 
-void    rev_rotate(t_stack *stack, char **ops)//rra rrb
+void    rev_rotate(t_stack *stack, char **ops)
 {
     t_node *tmp;
 
@@ -49,10 +54,8 @@ void    rev_rotate(t_stack *stack, char **ops)//rra rrb
     tmp->prev = NULL;
 }
 
-void    rev_rot_both(t_stack *a, t_stack *b, char **ops)//rrr
+void    rev_rot_both(t_stack *a, t_stack *b, char **ops)
 {
-//	static char *null = NULL;
-
 	rev_rotate(a, NULL);
 	rev_rotate(b, NULL);
 	if (ops)

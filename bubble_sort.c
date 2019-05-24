@@ -1,14 +1,22 @@
-//
-// Created by den on 17.05.19.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:27:39 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:27:41 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void bubble_sort(int *arr, size_t len)
+void	bubble_sort(int *arr, size_t len)
 {
-	int swap_cnt;
-	size_t i;
-	int tmp;
+	int		swap_cnt;
+	size_t	i;
+	int		tmp;
 
 	swap_cnt = 1;
 	while (swap_cnt != 0)

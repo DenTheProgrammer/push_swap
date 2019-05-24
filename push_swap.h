@@ -1,11 +1,20 @@
-//
-// Created by Maybell Debbi on 2019-05-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:29:22 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:29:28 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 # define PUSH_SWAP_PUSH_SWAP_H
 # include <stdlib.h>
-# include <stdio.h>
+# include <unistd.h>
+# include "printf.h"
 # include "libft/libft.h"
 
 typedef struct s_node
@@ -23,7 +32,8 @@ typedef struct s_stack
     t_node *tail;
 } t_stack;
 
-int *parse_input(int argc, char **argv);
+int *parseinput(int argc, char **argv);
+int 	is_valid_input(char **input, int size);
 
 t_node *create_node(int nbr);
 void    add_node_tail(t_node **tail, t_node *node);
@@ -50,4 +60,8 @@ int is_cyclesorted_desc(t_stack *stack);
 char **ops_trimmer(char **oparr);
 char **ops_smarter(char **oparr);
 char	**del(char **arr, int len, int ind);
-#endif //PUSH_SWAP_PUSH_SWAP_H
+char **one_line_fix(char **arr);
+void	throw_error(char *msg);
+int arrlen(char **arr);
+char	**argvdup(int argc, char **argv, int visual);
+#endif

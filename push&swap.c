@@ -1,6 +1,14 @@
-//
-// Created by Maybell Debbi on 2019-05-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push&swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:29:01 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:29:03 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -13,7 +21,7 @@ void    swap(t_stack *stack, char **ops)
     if (stack->size < 2)
         return ;
     if (stack->size == 2)
-        stack->tail = stack->head;//?
+        stack->tail = stack->head;
     tmp = stack->head;
     stack->head = stack->head->next;
     stack->head->prev = NULL;
@@ -22,15 +30,10 @@ void    swap(t_stack *stack, char **ops)
     stack->head->next->prev = stack->head;
     if (tmp->next)
     	tmp->next->prev = tmp;
-//    if (*op)
-//        printf("s%s\n", op);
-
 }
 
 void    swap_both(t_stack *a, t_stack *b, char **ops)
 {
-//	static char *null = NULL;
-
     swap(a, NULL);
     swap(b, NULL);
 	if (ops)
@@ -60,5 +63,4 @@ void    push(t_stack *src, t_stack *dest, char **ops)
         src->tail = src->size == 1 ? src->head : NULL;
     if (dest->size == 1)
         dest->tail = dest->head;
-//    printf("p%c\n", dest->name);
 }

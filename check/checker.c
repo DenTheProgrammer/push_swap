@@ -1,6 +1,14 @@
-//
-// Created by Maybell Debbi on 2019-05-22.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:27:04 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:27:06 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
@@ -19,27 +27,49 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 	else if (ft_strequ(op, "ss"))
 		swap_both(a, b, NULL);
 	else
-		printf("Unknown operation: %s\n", op);
+		throw_error("Error\n");
 }
 
-void	read_ops(t_stack *a, t_stack *b)
+void	read_ops(t_stack *a, t_stack *b, int v)
 {
 	char	*line;
+
+	line = NULL;
+	if (v)
+		print_stacks(a, b);
 	while (get_next_line(0, &line) > 0)
 	{
 		execute_operation(line, a, b);
-		print_stacks(a, b);//
+		if (v)
+			print_stacks(a, b);
 	}
+	free(line);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int *input;
-	int B[] = {};
+	int		*input;
+	int		sorted;
+	int		visual;
+	char	**arr;
 
-	input = parse_input(argc, argv);
-	t_stack *a = create_stack(input, argc - 1, NULL);
-	t_stack *b = create_stack(B, 0, NULL);
-	read_ops(a, b);
-	return (printf("%s\n", is_sorted_asc(a) && (a->size == argc - 1) ? "OK" : "KO"));
+	visual = ft_strequ(argv[1], "-v");
+	arr = argvdup(argc, argv, visual);
+	if (argc < 2)
+		return (0);
+	if (argc == 2 + visual)
+		arr = one_line_fix(arr);
+	argc = arrlen(arr);
+	if (!is_valid_input(arr, argc))
+		throw_error("Error\n");
+	input = parseinput(argc, arr);
+	t_stack *a = create_stack(input, argc, NULL);
+	t_stack *b = create_stack(NULL, 0, NULL);
+	free(input);
+	read_ops(a, b, visual);
+	sorted = is_sorted_asc(a) && (a->size == argc);
+	free_stack(a);
+	free_stack(b);
+	free2dim_chararr(arr);
+	return (ft_printf("%s\n", sorted ? "OK" : "KO"));
 }

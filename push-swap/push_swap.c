@@ -1,20 +1,16 @@
-//
-// Created by Maybell Debbi on 2019-05-16.
-//
-//todo error management
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdebbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/23 18:27:20 by mdebbi            #+#    #+#             */
+/*   Updated: 2019/05/23 18:27:28 by mdebbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int get_ops_count(char *ops)
-{
-	char **splitted = ft_strsplit(ops, ' ');
-
-	int len = 0;
-	while (splitted[len])
-		len++;
-	free2dim_chararr(splitted);
-	return (len);
-}
 
 void	print_output(char **ops)
 {
@@ -22,7 +18,7 @@ void	print_output(char **ops)
 
 	i = 0;
 	while (ops[i])
-		printf("%s\n", ops[i++]);
+		ft_printf("%s\n", ops[i++]);
 	free2dim_chararr(ops);
 }
 
@@ -38,26 +34,31 @@ char 	**result_ops(char *ops)
 
 int		main(int argc, char **argv)
 {
-	char *ops = ft_strnew(0);
-	int *A = parse_input(argc, argv);
-	t_stack *a;
-	t_stack *b;
-	int B[] = {};
+	char	*ops;
+	int		*A;
+	t_stack	*a;
+	t_stack	*b;
+	char	**arr;
 
-    a = create_stack(A, argc - 1, "a");
-    b = create_stack(B, 0, "b");
+	ops = ft_strnew(0);
+	arr = argvdup(argc, argv, 0);
+	if (argc == 2)
+		arr = one_line_fix(arr);
+	argc = arrlen(arr);
+	A = parseinput(argc, arr);
+	if (!is_valid_input(arr, argc))
+		throw_error("Error\n");
+    a = create_stack(A, argc, "a");
+    b = create_stack(NULL, 0, "b");
 	if (argc < 20)
-	{
-		mdebbis_sort(a, b, A, argc - 1, &ops);
-	}
+		mdebbis_sort(a, b, A, argc, &ops);
 	else
-	{
 		radix_sort(a,b,&ops);
-	}
 	free(A);
 	print_output(result_ops(ops));
 	free_stack(a);
 	free_stack(b);
 	free(ops);
+	free2dim_chararr(arr);
     return (0);
 }
