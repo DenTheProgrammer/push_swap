@@ -12,7 +12,6 @@
 
 #include "../push_swap.h"
 
-
 void	print_output(char **ops)
 {
 	int		i;
@@ -35,12 +34,13 @@ char 	**result_ops(char *ops)
 
 int		main(int argc, char **argv)
 {
-	char *ops = ft_strnew(0);
-	int *A;
-	t_stack *a;
-	t_stack *b;
-	char **arr;
+	char	*ops;
+	int		*A;
+	t_stack	*a;
+	t_stack	*b;
+	char	**arr;
 
+	ops = ft_strnew(0);
 	arr = argvdup(argc, argv, 0);
 	if (argc == 2)
 		arr = one_line_fix(arr);

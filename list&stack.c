@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_node *create_node(int nbr)
+t_node	*create_node(int nbr)
 {
     t_node *new;
 
@@ -23,7 +23,7 @@ t_node *create_node(int nbr)
     return (new);
 }
 
-void    add_node_tail(t_node **tail, t_node *node)
+void	add_node_tail(t_node **tail, t_node *node)
 {
     if(*tail)
         (*tail)->next = node;
@@ -31,12 +31,11 @@ void    add_node_tail(t_node **tail, t_node *node)
     *tail = node;
 }
 
-
-t_stack *create_stack(int *arr, int size, char *name)
+t_stack	*create_stack(int *arr, int size, char *name)
 {
-    t_stack *new;
-    int i;
-    t_node *curr;
+    t_stack	*new;
+    int		i;
+    t_node	*curr;
 
     new = (t_stack*)malloc(sizeof(t_stack));
     new->name = name;
@@ -68,7 +67,7 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-int arrlen(char **arr)
+int		arrlen(char **arr)
 {
 	int len;
 

@@ -12,13 +12,15 @@
 
 #include "push_swap.h"
 
-static void	sort(t_stack *a, t_stack *b, char **ops)
+static void		sort(t_stack *a, t_stack *b, char **ops)
 {
-	int mask = 1;
+	int mask;
 	int i;
-	int start_size = a->size;
 	int pushcnt;
+	int start_size;
 
+	mask = 1;
+	start_size = a->size;
 	while (!is_sorted_asc(a))
 	{
 		i = 0;
@@ -32,22 +34,21 @@ static void	sort(t_stack *a, t_stack *b, char **ops)
 			}
 			else
 				rotate(a, ops);
-//			print_stacks(a,b);
 		}
 		while (pushcnt-- && !(a->size == start_size && is_sorted_asc(a)))
 		{
 			push(b, a, ops);
-//			print_stacks(a,b);
 		}
 		mask = mask << 1;
 	}
 }
 
-static void	neg_to_b(t_stack *a, t_stack *b, char **ops)
+static void		neg_to_b(t_stack *a, t_stack *b, char **ops)
 {
-	int neg_count = 0;
-	t_node *ahead;
+	int		neg_count;
+	t_node	*ahead;
 
+	neg_count = 0;
 	ahead = a->head;
 	while (ahead)
 	{
@@ -65,7 +66,7 @@ static void	neg_to_b(t_stack *a, t_stack *b, char **ops)
 	}
 }
 
-static void neg_to_a(t_stack *a, t_stack *b, char **ops)
+static void		neg_to_a(t_stack *a, t_stack *b, char **ops)
 {
 	while (b->size > 0)
 	{
@@ -74,7 +75,7 @@ static void neg_to_a(t_stack *a, t_stack *b, char **ops)
 	}
 }
 
-void    radix_sort(t_stack *a, t_stack *b, char **ops)
+void    		radix_sort(t_stack *a, t_stack *b, char **ops)
 {
 	neg_to_b(a, b, ops);
 	sort(a, b, ops);

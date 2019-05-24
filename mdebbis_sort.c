@@ -12,12 +12,17 @@
 
 #include "push_swap.h"
 
-void split_in_half(t_stack *a, t_stack *b, const int *tab, size_t len, char **ops)
+void	split_in_half(t_stack *a, t_stack *b, const int *tab, size_t len, char **ops)
 {
-	t_node *ahead = a->head;
-	int mid_value = tab[len/2];
-	int in_a_cnt = 0;
-	int start_size = a->size;
+	t_node	*ahead;
+	int		mid_value;
+	int		in_a_cnt;
+	int		start_size;
+
+	ahead = a->head;
+	in_a_cnt = 0;
+	start_size = a->size;
+	mid_value = tab[len/2];
 	while (ahead)
 	{
 		if (ahead->nbr < mid_value)
@@ -31,14 +36,13 @@ void split_in_half(t_stack *a, t_stack *b, const int *tab, size_t len, char **op
 			push(a, b, ops);
 			in_a_cnt--;
 		} else rotate(a, ops);
-//		print_stacks(a,b);
 	}
 }
 
-int find_min(t_stack *stack)
+int		find_min(t_stack *stack)
 {
-	int min;
-	t_node *head;
+	int		min;
+	t_node	*head;
 
 	head = stack->head;
 	min = head->nbr;
@@ -51,10 +55,10 @@ int find_min(t_stack *stack)
 	return (min);
 }
 
-int find_max(t_stack *stack)
+int		find_max(t_stack *stack)
 {
-	int max;
-	t_node *head;
+	int		max;
+	t_node	*head;
 
 	head = stack->head;
 	max = head->nbr;
@@ -67,16 +71,17 @@ int find_max(t_stack *stack)
 	return (max);
 }
 
-int is_cyclesorted_asc(t_stack *stack)
+int		is_cyclesorted_asc(t_stack *stack)
 {
+	t_node *head;
+	int		min;
+	int		max;
+
+	min = find_min(stack);
+	max = find_max(stack);
+	head = stack->head;
 	if (stack->size <= 2)
 		return (1);
-	int min = find_min(stack);
-	int max = find_max(stack);
-
-	t_node *head;
-
-	head = stack->head;
 	while (head->next)
 	{
 		if (head->nbr > head->next->nbr)
@@ -87,15 +92,17 @@ int is_cyclesorted_asc(t_stack *stack)
 	return (1);
 }
 
-int is_cyclesorted_desc(t_stack *stack)
+int		is_cyclesorted_desc(t_stack *stack)
 {
+	t_node *head;
+	int		min;
+	int		max;
+
+	min = find_min(stack);
+	max = find_max(stack);
+	head = stack->head;
 	if (stack->size <= 2)
 		return (1);
-	int min = find_min(stack);
-	int max = find_max(stack);
-
-	t_node *head = stack->head;
-
 	while (head->next)
 	{
 		if (head->nbr < head->next->nbr)
@@ -106,12 +113,14 @@ int is_cyclesorted_desc(t_stack *stack)
 	return (1);
 }
 
-int is_need_swap_asc(t_stack *stack)
+int		is_need_swap_asc(t_stack *stack)
 {
-	int min = find_min(stack);
-	int max = find_max(stack);
-	t_node *head;
+	int		min;
+	int		max;
+	t_node	*head;
 
+	min = find_min(stack);
+	max = find_max(stack);
 	head = stack->head;
 	if (head->nbr > head->next->nbr)
 		if (head->nbr != max || head->next->nbr != min)
@@ -119,12 +128,14 @@ int is_need_swap_asc(t_stack *stack)
 	return (0);
 }
 
-int is_need_swap_desc(t_stack *stack)
+int		is_need_swap_desc(t_stack *stack)
 {
-	int min = find_min(stack);
-	int max = find_max(stack);
-	t_node *head;
+	int		min;
+	int		max;
+	t_node	*head;
 
+	min = find_min(stack);
+	max = find_max(stack);
 	head = stack->head;
 	if (head->nbr < head->next->nbr)
 		if (head->nbr != min || head->next->nbr != max)
@@ -132,11 +143,13 @@ int is_need_swap_desc(t_stack *stack)
 	return (0);
 }
 
-int rotate_dir(t_stack *stack, int elem)
+int		rotate_dir(t_stack *stack, int elem)
 {
-	int up_dir = 1;
-	t_node *head = stack->head;
+	int		up_dir;
+	t_node	*head;
 
+	head = stack->head;
+	up_dir = 1;
 	while (head)
 	{
 		if (head->nbr == elem)
@@ -155,34 +168,29 @@ void	make_real_sorted(t_stack *a, t_stack *b, char **ops)
 	while (!is_sorted_asc(a))
 	{
 		dir ? rotate(a, ops) : rev_rotate(a, ops);
-//		print_stacks(a,b);
 	}
 	dir = b->size > 0 ? rotate_dir(b, find_min(b)) : 0;
 	while (!is_sorted_desc(b))
 	{
 		dir ? rotate(b, ops) : rev_rotate(b, ops);
-//		print_stacks(a,b);
 	}
 }
 
-void push_half_back(t_stack *a, t_stack *b, char **ops)
+void	push_half_back(t_stack *a, t_stack *b, char **ops)
 {
 	while (b->size > 0)
 	{
 		push(b, a, ops);
-//		print_stacks(a,b);
 	}
 
 }
 
 void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops)
 {
-//	print_stacks(a,b);
 	if (is_sorted_asc(a))
 		return ;
 	bubble_sort(tab, len);
 	split_in_half(a, b, tab, len, ops);
-
 	while (!is_cyclesorted_asc(a) || !is_cyclesorted_desc(b))
 	{
 		if (is_need_swap_asc(a) && is_need_swap_desc(b))
@@ -193,7 +201,6 @@ void	mdebbis_sort(t_stack *a, t_stack *b, int *tab, size_t len, char **ops)
 			is_cyclesorted_asc(a) ? swap(b, ops) : rotate(a, ops);
 		else
 			rot_both(a, b, ops);
-//		print_stacks(a,b);
 	}
 	make_real_sorted(a, b, ops);
 	push_half_back(a, b, ops);

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-char **one_line_fix(char **arr)
+char	**one_line_fix(char **arr)
 {
 	char **argv;
 

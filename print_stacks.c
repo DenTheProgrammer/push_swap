@@ -12,29 +12,31 @@
 
 #include "push_swap.h"
 
-void print_stacks(t_stack *a, t_stack *b)
+void	print_stacks(t_stack *a, t_stack *b)
 {
-	t_node *ahead = a->head;
-	t_node *bhead = b->head;
+	t_node *ahead;
+	t_node *bhead;
 
+	ahead = a->head;
+	bhead = b->head;
 	while (ahead || bhead)
 	{
 		if (ahead && bhead)
 		{
-			ft_printf("|%5d|    |%5d|\n", ahead->nbr, bhead->nbr);
+			ft_printf("|%11d|    |%11d|\n", ahead->nbr, bhead->nbr);
 			ahead = ahead->next;
 			bhead = bhead->next;
 		}
 		else if (ahead)
 		{
-			ft_printf("|%5d|    |     |\n", ahead->nbr);
+			ft_printf("|%11d|    |     |\n", ahead->nbr);
 			ahead = ahead->next;
 		}
 		else
 		{
-			ft_printf("|     |    |%5d|\n", bhead->nbr);
+			ft_printf("|     |    |%11d|\n", bhead->nbr);
 			bhead = bhead->next;
 		}
 	}
-	ft_printf("   a          b  \n");
+	ft_printf("        a                b  \n");
 }

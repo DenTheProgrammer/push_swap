@@ -28,7 +28,6 @@ void	execute_operation(char *op, t_stack *a, t_stack *b)
 		swap_both(a, b, NULL);
 	else
 		throw_error("Error\n");
-//	ft_printf("%s\n",op);
 }
 
 void	read_ops(t_stack *a, t_stack *b, int v)
@@ -47,12 +46,12 @@ void	read_ops(t_stack *a, t_stack *b, int v)
 	free(line);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int *input;
-	int sorted;
-	int visual;
-	char **arr;
+	int		*input;
+	int		sorted;
+	int		visual;
+	char	**arr;
 
 	visual = ft_strequ(argv[1], "-v");
 	arr = argvdup(argc, argv, visual);

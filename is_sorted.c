@@ -12,10 +12,11 @@
 
 #include "push_swap.h"
 
-int is_sorted_asc(t_stack *a)
+int		is_sorted_asc(t_stack *a)
 {
-	t_node *head = a->head;
+	t_node *head;
 
+	head = a->head;
 	while (head && head->next)
 	{
 		if (head->nbr > head->next->nbr)
@@ -24,10 +25,11 @@ int is_sorted_asc(t_stack *a)
 	}
 	return (1);
 }
-int is_sorted_desc(t_stack *a)
+int		is_sorted_desc(t_stack *a)
 {
-	t_node *head = a->head;
+	t_node *head;
 
+	head = a->head;
 	while (head && head->next)
 	{
 		if (head->nbr < head->next->nbr)

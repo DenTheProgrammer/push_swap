@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-void bubble_sort(int *arr, size_t len)
+void	bubble_sort(int *arr, size_t len)
 {
-	int swap_cnt;
-	size_t i;
-	int tmp;
+	int		swap_cnt;
+	size_t	i;
+	int		tmp;
 
 	swap_cnt = 1;
 	while (swap_cnt != 0)

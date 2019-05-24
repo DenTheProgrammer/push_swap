@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-char	**argvdup(int argc, char **argv, int visual)
+char		**argvdup(int argc, char **argv, int visual)
 {
 	char	**res;
 	int		i;
@@ -29,7 +29,7 @@ char	**argvdup(int argc, char **argv, int visual)
 	return (res);
 }
 
-static int		ft_atoi_int(const char *str)
+static int	ft_atoi_int(const char *str)
 {
 	int				i;
 	long long int	answer;
@@ -59,11 +59,12 @@ static int		ft_atoi_int(const char *str)
 	return ((int)answer);
 }
 
-int *parseinput(int len, char **arr)
+int			*parseinput(int len, char **arr)
 {
 	int *res;
-	int i = 0;
+	int i;
 
+	i = 0;
 	res = malloc(sizeof(int) * (len));
 	while (i < len)
 		res[i++] = ft_atoi_int(*arr++);
