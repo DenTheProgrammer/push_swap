@@ -6,10 +6,6 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 include_directories(check)
 include_directories(libft)
-include_directories(printf)
-include_directories(printf/includes)
-include_directories(printf/libft)
-include_directories(printf/srcs)
 include_directories(push-swap)
 
 add_executable(push_swap
@@ -17,7 +13,6 @@ add_executable(push_swap
         libft/ft_abs.c
         libft/ft_atoi.c
         libft/ft_bzero.c
-        libft/ft_free2dim_arr.c
         libft/ft_isalnum.c
         libft/ft_isalpha.c
         libft/ft_isascii.c
@@ -92,10 +87,85 @@ add_executable(push_swap
         libft/ft_stupid_putstr.c
         libft/ft_tolower.c
         libft/ft_toupper.c
-        libft/get_next_line.c
         libft/libft.h
-        libft/throw_error.c
         printf/includes/printf.h
+        printf/libft/ft_abs.c
+        printf/libft/ft_atoi.c
+        printf/libft/ft_bzero.c
+        printf/libft/ft_isalnum.c
+        printf/libft/ft_isalpha.c
+        printf/libft/ft_isascii.c
+        printf/libft/ft_isdigit.c
+        printf/libft/ft_isprint.c
+        printf/libft/ft_isspace.c
+        printf/libft/ft_itoa.c
+        printf/libft/ft_itoa_base.c
+        printf/libft/ft_itoa_float.c
+        printf/libft/ft_itoa_long.c
+        printf/libft/ft_itoa_uns.c
+        printf/libft/ft_lstadd.c
+        printf/libft/ft_lstdel.c
+        printf/libft/ft_lstdelone.c
+        printf/libft/ft_lstiter.c
+        printf/libft/ft_lstlen.c
+        printf/libft/ft_lstmap.c
+        printf/libft/ft_lstnew.c
+        printf/libft/ft_lstpush.c
+        printf/libft/ft_memalloc.c
+        printf/libft/ft_memccpy.c
+        printf/libft/ft_memchr.c
+        printf/libft/ft_memcmp.c
+        printf/libft/ft_memcpy.c
+        printf/libft/ft_memdel.c
+        printf/libft/ft_memmove.c
+        printf/libft/ft_memset.c
+        printf/libft/ft_putchar.c
+        printf/libft/ft_putchar_fd.c
+        printf/libft/ft_putendl.c
+        printf/libft/ft_putendl_fd.c
+        printf/libft/ft_putnbr.c
+        printf/libft/ft_putnbr_fd.c
+        printf/libft/ft_putstr.c
+        printf/libft/ft_putstr_fd.c
+        printf/libft/ft_str_generate.c
+        printf/libft/ft_str_removechar.c
+        printf/libft/ft_strcat.c
+        printf/libft/ft_strchr.c
+        printf/libft/ft_strclr.c
+        printf/libft/ft_strcmp.c
+        printf/libft/ft_strcpy.c
+        printf/libft/ft_strcpynoendl.c
+        printf/libft/ft_strdel.c
+        printf/libft/ft_strdup.c
+        printf/libft/ft_strequ.c
+        printf/libft/ft_strinsert.c
+        printf/libft/ft_striter.c
+        printf/libft/ft_striteri.c
+        printf/libft/ft_strjoin.c
+        printf/libft/ft_strjoin_free.c
+        printf/libft/ft_strlcat.c
+        printf/libft/ft_strlen.c
+        printf/libft/ft_strlen_safe.c
+        printf/libft/ft_strmap.c
+        printf/libft/ft_strmapi.c
+        printf/libft/ft_strncat.c
+        printf/libft/ft_strncmp.c
+        printf/libft/ft_strncpy.c
+        printf/libft/ft_strnequ.c
+        printf/libft/ft_strnew.c
+        printf/libft/ft_strnstr.c
+        printf/libft/ft_strpushchar.c
+        printf/libft/ft_strrchr.c
+        printf/libft/ft_strsplit.c
+        printf/libft/ft_strstr.c
+        printf/libft/ft_strsub.c
+        printf/libft/ft_strtolower.c
+        printf/libft/ft_strtoupper.c
+        printf/libft/ft_strtrim.c
+        printf/libft/ft_stupid_putstr.c
+        printf/libft/ft_tolower.c
+        printf/libft/ft_toupper.c
+        printf/libft/libft.h
         printf/srcs/addit.c
         printf/srcs/apply_flags.c
         printf/srcs/apply_formats.c
@@ -121,6 +191,7 @@ add_executable(push_swap
         is_sorted.c
         list&stack.c
         mdebbis_sort.c
+        one_line_fix.c
         parse_input.c
         print_stacks.c
         printf.h
@@ -131,4 +202,4 @@ add_executable(push_swap
         rotate.c
         smarter.c
         trimmer.c
-        validation.c one_line_fix.c)
+        validation.c)
