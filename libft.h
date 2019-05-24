@@ -16,8 +16,9 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
-#define BUFF_SIZE 1
-#define MAX_FD 12000
+# define BUFF_SIZE 1
+# define MAX_FD 12000
+
 /*
 ** additional
 */
@@ -101,18 +102,18 @@ int					ft_isspace(int c);
 char				*ft_strtolower(char *str);
 char				*ft_strtoupper(char *str);
 char				*ft_itoa_base(unsigned long long n, int base);
-char				*ft_itoa_Ubase(unsigned long long n, int base);
 char				*ft_itoa_uns(unsigned long long n);
-char				*ft_itoa_long(long long  n);
+char				*ft_itoa_long(long long n);
 char				*ft_itoa_float(double nbr, int prec);
-char				*ft_strjoin_free(const char *s1, const char *s2, int tofree);
+char				*ft_strjoin_free(const char *s1, const char *s2,
+					int tofree);
 double				ft_abs(double nbr);
 void				ft_strpushchar(char **str, int chr);
 size_t				ft_strlen_safe(const char *s);
 void				ft_stupid_putstr(char *s);
 char				*ft_strcpynoendl(char *dest, const char *src);
 char				*ft_str_generate(int len, char chr);
-char 				*ft_str_removechar(char *str, char chr);
+char				*ft_str_removechar(char *str, char chr);
 char				*ft_strinsert(char *str, char *sub, int index);
 int					get_next_line(const int fd, char **line);
 void				free2dim_chararr(char **arr);
