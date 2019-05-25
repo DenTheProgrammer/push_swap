@@ -18,7 +18,7 @@ void	print_output(char **ops)
 
 	i = 0;
 	while (ops[i])
-		ft_printf("%s\n", ops[i++]);
+		printf("%s\n", ops[i++]);
 	free2dim_chararr(ops);
 }
 
@@ -50,10 +50,14 @@ int		main(int argc, char **argv)
 		throw_error("Error\n");
 	a = create_stack(input, argc, "a");
 	b = create_stack(NULL, 0, "b");
-	argc < 20 ? mdebbis_sort((t_stack*[2]){a, b}, input, argc, &ops) :
-													radix_sort(a, b, &ops);
+//	argc == 5 ? mdebbis_sort((t_stack*[2]){a, b}, input, argc, &ops) :
+//			min_sort((t_stack*[]){a, b}, input, argc, &ops);
+//	min_sort((t_stack*[2]){a, b}, input, argc, &ops);
+//	mdebbis_sort((t_stack*[2]){a, b}, input, argc, &ops);
+	radix_sort(a, b, &ops);
 	free(input);
 	print_output(result_ops(ops));
+//	print_output(ft_strsplit(ops, ' '));
 	free_stack(a);
 	free_stack(b);
 	free(ops);

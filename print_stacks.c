@@ -23,20 +23,20 @@ void	print_stacks(t_stack *a, t_stack *b)
 	{
 		if (ahead && bhead)
 		{
-			ft_printf("|%11d|    |%11d|\n", ahead->nbr, bhead->nbr);
+			printf("|%11d|    |%11d|\n", ahead->nbr, bhead->nbr);
 			ahead = ahead->next;
 			bhead = bhead->next;
 		}
 		else if (ahead)
 		{
-			ft_printf("|%11d|    |           |\n", ahead->nbr);
+			printf("|%11d|    |           |\n", ahead->nbr);
 			ahead = ahead->next;
 		}
 		else
 		{
-			ft_printf("|           |    |%11d|\n", bhead->nbr);
+			printf("|           |    |%11d|\n", bhead->nbr);
 			bhead = bhead->next;
 		}
 	}
-	ft_printf("      a                b  \n");
+	printf("      a                b  \n");
 }

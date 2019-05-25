@@ -14,8 +14,10 @@
 # define PUSH_SWAP_PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>/////////////
 # include "printf.h"
 # include "libft.h"
+# include <limits.h>
 
 typedef struct		s_node
 {
@@ -58,7 +60,9 @@ void				bubble_sort(int *arr, size_t len);
 void				radix_sort(t_stack *a, t_stack *b, char **ops);
 void				mdebbis_sort(t_stack *starr[2], int *tab, size_t len,
 					char **ops);
+void	min_sort(t_stack *stacks[2], int *tab, int len, char **ops);
 int					is_cyclesorted_desc(t_stack *stack);
+void	make_real_sorted(t_stack *a, t_stack *b, char **ops);
 char				**ops_trimmer(char **oparr);
 char				**ops_smarter(char **oparr);
 char				**del(char **arr, int len, int ind);
