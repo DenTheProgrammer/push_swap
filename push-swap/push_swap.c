@@ -50,11 +50,11 @@ int		main(int argc, char **argv)
 		throw_error("Error\n");
 	a = create_stack(input, argc, "a");
 	b = create_stack(NULL, 0, "b");
-//	argc == 5 ? mdebbis_sort((t_stack*[2]){a, b}, input, argc, &ops) :
-//			min_sort((t_stack*[]){a, b}, input, argc, &ops);
+	argc == 5 ? mdebbis_sort((t_stack*[2]){a, b}, input, argc, &ops) :
+			min_sort((t_stack*[2]){a, b}, input, argc, &ops);
 //	min_sort((t_stack*[2]){a, b}, input, argc, &ops);
 //	mdebbis_sort((t_stack*[2]){a, b}, input, argc, &ops);
-	radix_sort(a, b, &ops);
+//	radix_sort(a, b, &ops);
 	free(input);
 	print_output(result_ops(ops));
 //	print_output(ft_strsplit(ops, ' '));
