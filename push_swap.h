@@ -14,7 +14,6 @@
 # define PUSH_SWAP_PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>/////////////
 # include "printf.h"
 # include "libft.h"
 # include <limits.h>
@@ -60,9 +59,9 @@ void				bubble_sort(int *arr, size_t len);
 void				radix_sort(t_stack *a, t_stack *b, char **ops);
 void				mdebbis_sort(t_stack *starr[2], int *tab, size_t len,
 					char **ops);
-void	min_sort(t_stack *stacks[2], int *tab, int len, char **ops);
+void				min_sort(t_stack *stacks[2], int *tab, int len, char **ops);
 int					is_cyclesorted_desc(t_stack *stack);
-void	make_real_sorted(t_stack *a, t_stack *b, char **ops);
+void				make_real_sorted(t_stack *a, t_stack *b, char **ops);
 char				**ops_trimmer(char **oparr);
 char				**ops_smarter(char **oparr);
 char				**del(char **arr, int len, int ind);
@@ -70,4 +69,9 @@ char				**one_line_fix(char **arr);
 void				throw_error(char *msg);
 int					arrlen(char **arr);
 char				**argvdup(int argc, char **argv, int visual);
+int					min(int a, int b);
+int					find_lesser(t_stack *a, int nbr);
+int					find_bigger(t_stack *a, int nbr);
+int					count_ops(t_stack *a, t_stack *b, int ind, int nbr);
+int					find_min_ops_el(t_stack *a, t_stack *b);
 #endif

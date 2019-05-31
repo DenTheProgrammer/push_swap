@@ -107,4 +107,4 @@ add_executable(push_swap
         rotate.c
         smarter.c
         trimmer.c
-        validation.c libft/free2dim_chararr.c libft/throw_error.c min_sort.c rand.c)
+        validation.c libft/free2dim_chararr.c libft/throw_error.c min_sort.c rand.c min_sort_additional.c)
